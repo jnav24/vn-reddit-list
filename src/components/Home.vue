@@ -25,14 +25,15 @@
 				<TouchableOpacity
 					@press="handleListTap(country)"
 					class="flex-container">
-					<Text
+					<image
 						:style="{
-				  		  height: 40,
-			  			  marginRight: 8,
-			  			  width: 40,
-				      }">
-						{{ country.code }}
-					</Text>
+							borderRadius: 25,
+							height: 50,
+							marginRight: 8,
+							width: 50,
+						}"
+						:source="{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}"
+					/>
 					<Text>{{ country.name }}</Text>
 				</TouchableOpacity>
 			</View>
@@ -328,6 +329,7 @@
 	}
 	.flex-container {
 		align-content: center;
+		align-items: center;
 		flex-direction: row;
 	}
 	.list {
