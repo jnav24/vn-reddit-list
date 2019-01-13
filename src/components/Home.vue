@@ -16,8 +16,7 @@
 		</TouchableOpacity>
 
 		<ScrollView :style="{
-		  	width: '100%',
-	  }">
+		  	width: '100%'}">
 			<View
 				class="list"
 				v-for="(country, index) in countries"
