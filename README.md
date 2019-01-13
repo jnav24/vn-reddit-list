@@ -6,7 +6,7 @@ A simple reddit app with Vue Native
 
 Clone this repo and use the expo commands or npm commands to get going:
 
-* **Run on iOS**
+* **Run Commands**
   * npm run start
   * npm run ios
   * npm run android
