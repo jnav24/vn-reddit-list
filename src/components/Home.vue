@@ -9,11 +9,6 @@
               width: 150,
           }"
 			v-model="search"/>
-		<Button
-			@press="buttonEvent()"
-			title="Click me"
-			color="#841584"
-			accessibility-label="Learn more about this button"/>
 		<TouchableOpacity
 			class="button"
 			@press="buttonEvent()">
@@ -47,6 +42,11 @@
 
 <script>
 	export default {
+		props: {
+			navigation: {
+				type: Object
+			}
+		},
 		data() {
 			return {
 				search: 'from search',
@@ -302,7 +302,7 @@
 				alert('button clicked');
 			},
 			handleListTap(country) {
-				alert(country.name);
+				this.navigation.navigate("List");
 			}
 		},
 	}
@@ -314,6 +314,7 @@
 		background-color: white;
 		flex: 1;
 		justify-content: center;
+		padding-top: 15;
 	}
 	.button {
 		background-color: #900;
