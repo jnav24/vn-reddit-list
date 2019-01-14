@@ -1,20 +1,22 @@
 <template>
 	<view class="container">
 		<text class="text-color-primary">My Vue Native App</text>
-		<TextInput
-			placeholder="Enter Channel"
-			:style="{
-              borderColor: 'grey',
-              borderWidth: 1,
-              height: 40,
-              width: 150,
-          }"
-			v-model="search"/>
-		<TouchableOpacity
-			class="button"
-			@press="getPosts()">
-			<Text class="button-text">Login</Text>
-		</TouchableOpacity>
+		<View class="flex-container">
+			<TextInput
+				placeholder="Enter Channel"
+				:style="{
+					borderColor: 'grey',
+					borderWidth: 0.5,
+					height: 40,
+					width: 150,
+				}"
+				v-model="search"/>
+			<TouchableOpacity
+				class="button"
+				@press="getPosts()">
+				<Text class="button-text">Login</Text>
+			</TouchableOpacity>
+		</View>
 
 		<ScrollView :style="{
 		  	width: '100%'}">
@@ -61,8 +63,7 @@
 		methods: {
 			handleListTap(post) {
 				this.navigation.navigate("List", {
-					imageSrc: post.data.preview.images[0].source.url,
-					thumbSrc: post.data.thumbnail,
+					post,
 				});
 			},
 			getPosts() {

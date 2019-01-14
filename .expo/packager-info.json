@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 80717,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://vm-8ni.anonymous.vn-reddit-list.exp.direct",
   "packagerNgrokUrl": "https://packager.vm-8ni.anonymous.vn-reddit-list.exp.direct",
-  "ngrokPid": 80731
+  "ngrokPid": 83456
 }
