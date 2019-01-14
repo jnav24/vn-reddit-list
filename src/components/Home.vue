@@ -2,6 +2,7 @@
 	<view class="container">
 		<text class="text-color-primary">My Vue Native App</text>
 		<TextInput
+			placeholder="Enter Channel"
 			:style="{
               borderColor: 'grey',
               borderWidth: 1,
@@ -11,7 +12,7 @@
 			v-model="search"/>
 		<TouchableOpacity
 			class="button"
-			@press="buttonEvent()">
+			@press="getPosts()">
 			<Text class="button-text">Login</Text>
 		</TouchableOpacity>
 
@@ -48,28 +49,32 @@
 			}
 		},
 		mounted() {
-			fetch('http://reddit.com/r/aww.json')
-				.then(response => response.json())
-				.then(data => {
-					this.posts = data.data.children;
-				})
+			this.search = 'kittens';
+			this.getPosts();
 		},
 		data() {
 			return {
 				posts: [],
-				search: 'from search',
+				search: '',
 			}
 		},
 		methods: {
-			buttonEvent() {
-				alert('button clicked');
-			},
 			handleListTap(post) {
 				this.navigation.navigate("List", {
 					imageSrc: post.data.preview.images[0].source.url,
 					thumbSrc: post.data.thumbnail,
 				});
-			}
+			},
+			getPosts() {
+				const search = this.search.replace(/\s+/, '');
+				this.search = '';
+
+				fetch(`http://reddit.com/r/${search}.json`)
+					.then(response => response.json())
+					.then(data => {
+						this.posts = data.data.children;
+					})
+			},
 		},
 	}
 </script>
